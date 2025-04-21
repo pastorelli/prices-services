@@ -1,5 +1,6 @@
 package com.inditex.pricing;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,6 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ProductPriceSearcherApplicationTests {
 
     @Test
-    void contextLoads() {}
+    void contextLoads() {
+        assertDoesNotThrow(() -> ProductPriceSearcherApplication.main(new String[] {}));
+    }
 
 }
