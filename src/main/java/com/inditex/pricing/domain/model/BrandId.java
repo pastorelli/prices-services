@@ -1,5 +1,5 @@
 package com.inditex.pricing.domain.model;
 
-public record BrandId(Long value) {
+public record BrandId(long value) {
 
 }
