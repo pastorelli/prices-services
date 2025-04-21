@@ -65,11 +65,11 @@ public class PriceQueryServiceTest {
 
         ApplicablePriceNotFoundException exception =
                 assertThrows(ApplicablePriceNotFoundException.class, () -> {
-            priceQueryService.findApplicablePrice(productId, brandId, applicationDateTime);
-        });
-                assertEquals(
-                "No applicable price found for productId: 12345, brandId: 1, applicationDateTime: 2025-04-20T10:00",
-                exception.getMessage());
+                    priceQueryService.findApplicablePrice(productId, brandId, applicationDateTime);
+                });
+        assertEquals(String.format(
+                "Precio aplicable no encontrado para el producto %d, marca %d y fecha de aplicación %s",
+                productId.value(), brandId.value(), applicationDateTime), exception.getMessage());
     }
 
     private Price applicablePrice() {
