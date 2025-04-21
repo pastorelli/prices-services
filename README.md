@@ -68,4 +68,5 @@ docker run -p 8080:8080 price-product-searcher
 ```
 
 La API estará disponible en `http://localhost:8080`.
+
 ---
