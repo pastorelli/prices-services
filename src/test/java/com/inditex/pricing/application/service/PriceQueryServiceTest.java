@@ -49,13 +49,13 @@ public class PriceQueryServiceTest {
         PriceDetails priceDetails =
                 priceQueryService.findApplicablePrice(productId, brandId, applicationDateTime);
 
-        assertEquals(expectedPrice.getProductId(), priceDetails.productId());
-        assertEquals(expectedPrice.getBrandId(), priceDetails.brandId());
-        assertEquals(expectedPrice.getPriceListId(), priceDetails.priceListId());
-        assertEquals(expectedPrice.getAmount(), priceDetails.finalPrice());
-        assertEquals(expectedPrice.getCurrency(), priceDetails.currency());
-        assertEquals(expectedPrice.getStartDate(), priceDetails.startDate());
-        assertEquals(expectedPrice.getEndDate(), priceDetails.endDate());
+        assertEquals(expectedPrice.productId(), priceDetails.productId());
+        assertEquals(expectedPrice.brandId(), priceDetails.brandId());
+        assertEquals(expectedPrice.priceListId(), priceDetails.priceListId());
+        assertEquals(expectedPrice.amount(), priceDetails.finalPrice());
+        assertEquals(expectedPrice.currency(), priceDetails.currency());
+        assertEquals(expectedPrice.startDate(), priceDetails.startDate());
+        assertEquals(expectedPrice.endDate(), priceDetails.endDate());
     }
 
     @Test

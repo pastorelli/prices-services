@@ -1,7 +1,6 @@
 package com.inditex.pricing.infrastructure.persistence.adapter;
 
 import java.time.LocalDateTime;
-import java.util.Currency;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import com.inditex.pricing.domain.model.BrandId;
@@ -24,13 +23,7 @@ public class PriceRepositoryAdapter implements PriceRepository {
                 .findTopByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
                         productId.value(), brandId.value(), applicationDateTime,
                         applicationDateTime)
-                .map(this::mapToDomain);
+                .map(PriceEntity::toPrice);
     }
 
-    private Price mapToDomain(PriceEntity priceEntity) {
-        return new Price(new ProductId(priceEntity.getProductId()),
-                new BrandId(priceEntity.getBrandId()), priceEntity.getStartDate(),
-                priceEntity.getEndDate(), priceEntity.getPriceListId(), priceEntity.getPriority(),
-                priceEntity.getPrice(), Currency.getInstance(priceEntity.getCurrency()));
-    }
 }

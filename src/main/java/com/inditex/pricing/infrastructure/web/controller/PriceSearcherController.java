@@ -1,7 +1,6 @@
 package com.inditex.pricing.infrastructure.web.controller;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,14 +56,6 @@ public class PriceSearcherController {
         PriceDetails priceDetails = priceQueryUseCase.findApplicablePrice(new ProductId(productId),
                 new BrandId(brandId), applicationDate);
 
-        return mapToPriceDetailResponse(priceDetails);
-    }
-
-    private PriceDetailResponse mapToPriceDetailResponse(PriceDetails priceDetails) {
-        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-        return new PriceDetailResponse(priceDetails.productId().value(),
-                priceDetails.brandId().value(), priceDetails.startDate().format(formatter),
-                priceDetails.endDate().format(formatter), priceDetails.priceListId(),
-                priceDetails.finalPrice(), priceDetails.currency().getCurrencyCode());
+        return PriceDetailResponse.fromPriceDetails(priceDetails);
     }
 }

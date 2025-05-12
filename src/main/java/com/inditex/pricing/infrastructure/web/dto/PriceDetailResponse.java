@@ -1,6 +1,8 @@
 package com.inditex.pricing.infrastructure.web.dto;
 
 import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
+import com.inditex.pricing.domain.model.PriceDetails;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "Precio aplicable")
@@ -16,4 +18,12 @@ public record PriceDetailResponse(
         @Schema(description = "Importe", example = "35.50") BigDecimal price,
         @Schema(description = "Código ISO de la moneda", example = "EUR") String currencyCode) {
 
+
+    public static PriceDetailResponse fromPriceDetails(PriceDetails priceDetails) {
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        return new PriceDetailResponse(priceDetails.productId().value(),
+                priceDetails.brandId().value(), priceDetails.startDate().format(formatter),
+                priceDetails.endDate().format(formatter), priceDetails.priceListId(),
+                priceDetails.finalPrice(), priceDetails.currency().getCurrencyCode());
+    }
 }

@@ -41,14 +41,14 @@ public class PriceRepositoryAdapterTest {
 
         assertTrue(resultPrice.isPresent(), "Applicable price should be present");
         Price price = resultPrice.get();
-        assertEquals(productId, price.getProductId());
-        assertEquals(brandId, price.getBrandId());
-        assertEquals(LocalDateTime.of(2020, 6, 14, 0, 0, 0), price.getStartDate());
-        assertEquals(LocalDateTime.of(2020, 12, 31, 23, 59, 59), price.getEndDate());
-        assertEquals(1L, price.getPriceListId());
-        assertEquals(0, price.getPriority());
-        assertEquals(new BigDecimal("35.50"), price.getAmount());
-        assertEquals("EUR", price.getCurrency().getCurrencyCode());
+        assertEquals(productId, price.productId());
+        assertEquals(brandId, price.brandId());
+        assertEquals(LocalDateTime.of(2020, 6, 14, 0, 0, 0), price.startDate());
+        assertEquals(LocalDateTime.of(2020, 12, 31, 23, 59, 59), price.endDate());
+        assertEquals(1L, price.priceListId());
+        assertEquals(0, price.priority());
+        assertEquals(new BigDecimal("35.50"), price.amount());
+        assertEquals("EUR", price.currency().getCurrencyCode());
     }
 
     @Test
@@ -59,14 +59,14 @@ public class PriceRepositoryAdapterTest {
 
         assertTrue(resultPrice.isPresent(), "Applicable price should be present");
         Price price = resultPrice.get();
-        assertEquals(productId, price.getProductId());
-        assertEquals(brandId, price.getBrandId());
-        assertEquals(LocalDateTime.of(2020, 6, 14, 15, 0, 0), price.getStartDate());
-        assertEquals(LocalDateTime.of(2020, 6, 14, 18, 30, 0), price.getEndDate());
-        assertEquals(2L, price.getPriceListId());
-        assertEquals(1, price.getPriority());
-        assertEquals(new BigDecimal("25.45"), price.getAmount());
-        assertEquals("EUR", price.getCurrency().getCurrencyCode());
+        assertEquals(productId, price.productId());
+        assertEquals(brandId, price.brandId());
+        assertEquals(LocalDateTime.of(2020, 6, 14, 15, 0, 0), price.startDate());
+        assertEquals(LocalDateTime.of(2020, 6, 14, 18, 30, 0), price.endDate());
+        assertEquals(2L, price.priceListId());
+        assertEquals(1, price.priority());
+        assertEquals(new BigDecimal("25.45"), price.amount());
+        assertEquals("EUR", price.currency().getCurrencyCode());
     }
 
     @Test
@@ -77,14 +77,14 @@ public class PriceRepositoryAdapterTest {
 
         assertTrue(resultPrice.isPresent(), "Applicable price should be present");
         Price price = resultPrice.get();
-        assertEquals(productId, price.getProductId());
-        assertEquals(brandId, price.getBrandId());
-        assertEquals(LocalDateTime.of(2020, 6, 15, 0, 0, 0), price.getStartDate());
-        assertEquals(LocalDateTime.of(2020, 6, 15, 11, 0, 0), price.getEndDate());
-        assertEquals(3L, price.getPriceListId());
-        assertEquals(1, price.getPriority());
-        assertEquals(new BigDecimal("30.50"), price.getAmount());
-        assertEquals("EUR", price.getCurrency().getCurrencyCode());
+        assertEquals(productId, price.productId());
+        assertEquals(brandId, price.brandId());
+        assertEquals(LocalDateTime.of(2020, 6, 15, 0, 0, 0), price.startDate());
+        assertEquals(LocalDateTime.of(2020, 6, 15, 11, 0, 0), price.endDate());
+        assertEquals(3L, price.priceListId());
+        assertEquals(1, price.priority());
+        assertEquals(new BigDecimal("30.50"), price.amount());
+        assertEquals("EUR", price.currency().getCurrencyCode());
     }
 
     @Test
@@ -95,14 +95,14 @@ public class PriceRepositoryAdapterTest {
 
         assertTrue(resultPrice.isPresent(), "Applicable price should be present");
         Price price = resultPrice.get();
-        assertEquals(productId, price.getProductId());
-        assertEquals(brandId, price.getBrandId());
-        assertEquals(LocalDateTime.of(2020, 6, 15, 0, 0, 0), price.getStartDate());
-        assertEquals(LocalDateTime.of(2020, 6, 15, 11, 0, 0), price.getEndDate());
-        assertEquals(3L, price.getPriceListId());
-        assertEquals(1, price.getPriority());
-        assertEquals(new BigDecimal("30.50"), price.getAmount());
-        assertEquals("EUR", price.getCurrency().getCurrencyCode());
+        assertEquals(productId, price.productId());
+        assertEquals(brandId, price.brandId());
+        assertEquals(LocalDateTime.of(2020, 6, 15, 0, 0, 0), price.startDate());
+        assertEquals(LocalDateTime.of(2020, 6, 15, 11, 0, 0), price.endDate());
+        assertEquals(3L, price.priceListId());
+        assertEquals(1, price.priority());
+        assertEquals(new BigDecimal("30.50"), price.amount());
+        assertEquals("EUR", price.currency().getCurrencyCode());
     }
 
     @Test
@@ -140,13 +140,13 @@ public class PriceRepositoryAdapterTest {
 
         assertTrue(resultPrice.isPresent(), "Applicable price should be present");
         Price price = resultPrice.get();
-        assertEquals(productId, price.getProductId());
-        assertEquals(differentBrandId, price.getBrandId());
-        assertEquals(LocalDateTime.of(2020, 1, 1, 0, 0, 0), price.getStartDate());
-        assertEquals(LocalDateTime.of(2020, 12, 31, 23, 59, 59), price.getEndDate());
-        assertEquals(1L, price.getPriceListId());
-        assertEquals(0, price.getPriority());
-        assertEquals(new BigDecimal("100.50"), price.getAmount());
-        assertEquals("EUR", price.getCurrency().getCurrencyCode());
+        assertEquals(productId, price.productId());
+        assertEquals(differentBrandId, price.brandId());
+        assertEquals(LocalDateTime.of(2020, 1, 1, 0, 0, 0), price.startDate());
+        assertEquals(LocalDateTime.of(2020, 12, 31, 23, 59, 59), price.endDate());
+        assertEquals(1L, price.priceListId());
+        assertEquals(0, price.priority());
+        assertEquals(new BigDecimal("100.50"), price.amount());
+        assertEquals("EUR", price.currency().getCurrencyCode());
     }
 }

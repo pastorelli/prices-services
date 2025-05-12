@@ -2,6 +2,10 @@ package com.inditex.pricing.infrastructure.persistence.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Currency;
+import com.inditex.pricing.domain.model.BrandId;
+import com.inditex.pricing.domain.model.Price;
+import com.inditex.pricing.domain.model.ProductId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,4 +38,11 @@ public class PriceEntity {
     private LocalDateTime startDate;
     @Column(name = "END_DATE", nullable = false)
     private LocalDateTime endDate;
+
+    public static Price toPrice(PriceEntity priceEntity) {
+        return new Price(new ProductId(priceEntity.getProductId()),
+                new BrandId(priceEntity.getBrandId()), priceEntity.getStartDate(),
+                priceEntity.getEndDate(), priceEntity.getPriceListId(), priceEntity.getPriority(),
+                priceEntity.getPrice(), Currency.getInstance(priceEntity.getCurrency()));
+    }
 }
